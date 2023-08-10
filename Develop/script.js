@@ -14,22 +14,35 @@ function writePassword() {
 
 /*Global*/
 
+var special = "!@#$%*?~=/\|";
+
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+var lower = "abcdefghijklmnopqrstuvwxyz";
+
+var numbers = "0123456789";
+
 function generatePassword() {
+  //prompt for password length
   var passwordLength = prompt("How long would you like your password to be? Only use numbers between 8 and 128 digits.");
   console.log (passwordLength);
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength) == true) {
   generatePassword();
   }
-  console.log(isNaN(passwordLength));
+ console.log(isNaN(passwordLength));
 
-  var yesOrNoSpecialCharacters = confirm("Would you like to use special characters?");
-  if (specialCharacters == true) {
-    
-    
-  }
+  
 
-  return "password";
+  var specialCharacters = confirm("Would you like to use special characters?");
+  // if (specialCharacters == true) {
+    
+  // }
+
+  var 
+
+
   /*Return statement*/
+  return "password";
 }
 
 
