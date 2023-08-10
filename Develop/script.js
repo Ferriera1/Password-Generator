@@ -22,6 +22,8 @@ var lower = "abcdefghijklmnopqrstuvwxyz";
 
 var numbers = "0123456789";
 
+var allCriteria = special + upper + lower + numbers;
+
 function generatePassword() {
 
   var password = "";
@@ -33,7 +35,7 @@ function generatePassword() {
   generatePassword();
   }
  console.log(isNaN(passwordLength));
- 
+
   var specialCharacters = confirm("Would you like to use special characters?");
   if (specialCharacters == true) {
     password += special[Math.floor(Math.random() * special.length)];
@@ -51,9 +53,14 @@ function generatePassword() {
   if (addNumber == true) {
     password += numbers[Math.floor(Math.random() * numbers.length)];  
   }
+  
+//this should iterate through the criteria until password length is met
+  while(passwordLength > password.length){
+    password += allCriteria[Math.floor(Math.random() * allCriteria.length)];
+  }
 
   /*Return statement*/
-  return "password";
+  return generateBtn.value = password;
 }
 
 
