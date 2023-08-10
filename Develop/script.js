@@ -23,6 +23,9 @@ var lower = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
 
 function generatePassword() {
+
+  var password = "";
+
   //prompt for password length
   var passwordLength = prompt("How long would you like your password to be? Only use numbers between 8 and 128 digits.");
   console.log (passwordLength);
@@ -30,16 +33,24 @@ function generatePassword() {
   generatePassword();
   }
  console.log(isNaN(passwordLength));
-
-  
-
+ 
   var specialCharacters = confirm("Would you like to use special characters?");
-  // if (specialCharacters == true) {
-    
-  // }
+  if (specialCharacters == true) {
+    password += special[Math.floor(Math.random() * special.length)];
+  }
 
-  var 
-
+  var upperCase = confirm("Would you like to use upper case letters?") 
+  if (upperCase == true) {
+    password += upper[Math.floor(Math.random() * upper.length)];  
+  }
+  var lowerCase = confirm("Would you like to use lower case letters?") 
+  if (lowerCase == true) {
+    password += lower[Math.floor(Math.random() * lower.length)];  
+  }
+  var addNumber = confirm("Would you like to use numbers?") 
+  if (addNumber == true) {
+    password += numbers[Math.floor(Math.random() * numbers.length)];  
+  }
 
   /*Return statement*/
   return "password";
