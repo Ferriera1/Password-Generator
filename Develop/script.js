@@ -22,7 +22,7 @@ var lower = "abcdefghijklmnopqrstuvwxyz";
 
 var numbers = "0123456789";
 
-var allCriteria = special + upper + lower + numbers;
+var allCriteria = "";
 
 function generatePassword() {
 
@@ -37,26 +37,35 @@ function generatePassword() {
  console.log(isNaN(passwordLength));
 
   var specialCharacters = confirm("Would you like to use special characters?");
+  var upperCase = confirm("Would you like to use upper case letters?") 
+  var lowerCase = confirm("Would you like to use lower case letters?") 
+  var addNumber = confirm("Would you like to use numbers?") 
+
   if (specialCharacters == true) {
-    password += special[Math.floor(Math.random() * special.length)];
+    allCriteria += special[Math.floor(Math.random() * special.length)];
   }
 
-  var upperCase = confirm("Would you like to use upper case letters?") 
   if (upperCase == true) {
-    password += upper[Math.floor(Math.random() * upper.length)];  
+    allCriteria += upper[Math.floor(Math.random() * upper.length)];  
   }
-  var lowerCase = confirm("Would you like to use lower case letters?") 
   if (lowerCase == true) {
-    password += lower[Math.floor(Math.random() * lower.length)];  
+    allCriteria += lower[Math.floor(Math.random() * lower.length)];  
   }
-  var addNumber = confirm("Would you like to use numbers?") 
   if (addNumber == true) {
-    password += numbers[Math.floor(Math.random() * numbers.length)];  
+    allCriteria += numbers[Math.floor(Math.random() * numbers.length)];  
   }
-  
+
 //this should iterate through the criteria until password length is met
   while(passwordLength > password.length){
     password += allCriteria[Math.floor(Math.random() * allCriteria.length)];
+  }
+
+  // if false is selected for all alert that there needs to be some criteria then prompt to start over. 
+
+  if (specialCharacters === false && upperCase === false && lowerCase === false && addNumber === false){
+    // generatePassword();
+    alert("There needs to be some criteria.")
+    generatePassword();
   }
 
   /*Return statement*/
